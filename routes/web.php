@@ -26,6 +26,10 @@ Route::get('/perfil', function(){
     return view('perfil');
 })->name('perfil');
 
+Route::get('/dashboard', function(){
+    return view('dashboard');
+})->name('dashboard');
+
 Route::get('/register', [RegisterController::class, 'show']);
 Route::post('/validar-registro', [RegisterController::class, 'register'])->name('validar-registro');
 Route::post('/validar-login', [RegisterController::class, 'login'])->name('validar-login');

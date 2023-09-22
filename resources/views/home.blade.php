@@ -78,20 +78,24 @@
     <a href="{{ route('perfil') }}" class="nav-link" aria-current="page">
         <img style="width: 30px; height: 30px;" src="{{ asset('assets/imagenes/icono-user.png') }}">
     </a>
-@else
-    <a href="{{ route('login') }}" class="nav-link" aria-current="page">
-        <img style="width: 30px; height: 30px;" src="{{ asset('assets/imagenes/icono-user.png') }}">
+
+    @if(auth()->user()->id_rol === 1)
+        <a href="{{ route('dashboard') }}" class="nav-link" aria-current="page">Ir al Dashboard</a>
+    @endif
+
+    <a href="" class="nav-link" aria-current="page">
+        <img style="width: 30px; height:30px;" src="{{ asset('assets/imagenes/icono-carrito.png') }}">
     </a>
-@endif
-      <!-- Icono de carrito para entrar a formulario de compras -->
-        <a href="error-404.html" class="nav-link" aria-current="page"><img style="width: 30px; height:30px;" src="{{('assets\imagenes\icono-carrito.png')}}"></a>
-    
-        @if(auth()->check())
+
     <p>{{ auth()->user()->nombre_usuario }}</p>
     <form method="POST" action="{{ route('logout') }}">
         @csrf
         <button type="submit" class="nav-link" aria-current="page">Cerrar sesión</button>
     </form>
+@else
+    <a href="{{ route('login') }}" class="nav-link" aria-current="page">
+        <img style="width: 30px; height: 30px;" src="{{ asset('assets/imagenes/icono-user.png') }}">
+    </a>
 @endif
       </nav>
     </div>

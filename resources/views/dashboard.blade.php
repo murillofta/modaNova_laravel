@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="{{('assets/dashboard.css')}}">
+    <link rel="stylesheet" href="{{('assets/styles.css')}}">
         <!--     Fonts and icons     -->
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
@@ -23,7 +23,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center align-content-center">
             <div class="col-8 barra">
-                <img src="imagenes/logo-modaNova.png" class="logo-modaNova" alt="logo-modaNova">
+                <img src="{{ asset ('assets\imagenes\logo-ModaNova.png') }}" class="logo-modaNova" alt="logo-modaNova">
             </div>
             <div class="col-4 text-right barra">
                 <ul class="navbar-nav mr-auto">
@@ -31,7 +31,10 @@
                         <a href="#" class="px-3 text-light perfil dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle user"></i></a>
 
                         <div class="dropdown-menu" aria-labelledby="navbar-dropdown">
-                            <a class="dropdown-item menuperfil cerrar" href="#"><i class="fas fa-sign-out-alt m-1"></i>Salir
+                        <form method="POST" action="{{ route('logout') }}">
+                             @csrf
+                             <button type="submit" class="nav-link" aria-current="page">Cerrar sesión</button>
+                            </form>
                             </a>
                         </div>
                     </li>
