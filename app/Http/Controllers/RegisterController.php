@@ -50,7 +50,7 @@ public function login(Request $request)
         if (Hash::check($request->password, $user->contraseña_usuario)) {
             Auth::login($user);
             if ($user->id_rol === 1) {
-                return redirect('/home'); // Redirigir a la página del dashboard
+                return redirect('/'); // Redirigir a la página del dashboard
             } else {
                 return redirect('/')->with('nombre_usuario', $user->nombre_usuario);
             }
