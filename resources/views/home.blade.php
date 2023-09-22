@@ -74,15 +74,23 @@
           <button class="btn btn-dark" type="submit">Buscar</button>
         </form>
     
-      <!-- Icono de Usuario para entrar a formulario de inicio de sesion-->
-        <a href="{{ route('login') }}" class="nav-link" aria-current="page"><img style="width: 30px; height:30px;" src="{{('assets\imagenes\icono-user.png')}}"></a>
+        @if(auth()->check())
+    <a href="{{ route('perfil') }}" class="nav-link" aria-current="page">
+        <img style="width: 30px; height: 30px;" src="{{ asset('assets/imagenes/icono-user.png') }}">
+    </a>
+@else
+    <a href="{{ route('login') }}" class="nav-link" aria-current="page">
+        <img style="width: 30px; height: 30px;" src="{{ asset('assets/imagenes/icono-user.png') }}">
+    </a>
+@endif
       <!-- Icono de carrito para entrar a formulario de compras -->
         <a href="error-404.html" class="nav-link" aria-current="page"><img style="width: 30px; height:30px;" src="{{('assets\imagenes\icono-carrito.png')}}"></a>
     
         @if(auth()->check())
+    <p>{{ auth()->user()->nombre_usuario }}</p>
     <form method="POST" action="{{ route('logout') }}">
         @csrf
-        <button cla type="submit" class="nav-link" aria-current="page">Cerrar sesión</button>
+        <button type="submit" class="nav-link" aria-current="page">Cerrar sesión</button>
     </form>
 @endif
       </nav>

@@ -91,7 +91,7 @@
         <input name="name" class="inputs" type="text" placeholder="Ingrese su nombre completo." pattern="[a-z-A-Z- ]{8,30}" title="Ingrese solo letras, minimo 8 y maximo 30 caracteres." required>
         <input name="email" class="inputs" type="email" placeholder="Ingrese su correo electronico." title="Ingrese un correo electronico valido" required>
 
-        <input name="fecha_nac" class="inputs" type="date" placeholder="Ingrese su fecha de nacimiento (dia/mes/año)." title="Ingrese su fecha de nacimiento." required min="2008-01-01">
+        <input name="fecha_nac" class="inputs" type="date" placeholder="Ingrese su fecha de nacimiento (dia/mes/año)." title="Ingrese su fecha de nacimiento." required max="2008-01-01">
         
         <select name="tipo_doc" class="inputs" type="text" placeholder="Ingrese su tipo de documento" title="Ingrese un tipo de documento valido." required>
           <option value="0">Selecciona tu tipo de documento</option>

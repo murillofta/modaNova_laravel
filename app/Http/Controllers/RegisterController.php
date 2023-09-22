@@ -58,7 +58,7 @@ public function login(Request $request)
             return redirect('/login')->with('error', 'Las credenciales no son válidas.');
         }
     } else {
-        return redirect('/login')->with('error', 'Usuario no encontrado.');
+        return redirect('/loginn')->with('error', 'Usuario no encontrado.');
     }
 }
 }
