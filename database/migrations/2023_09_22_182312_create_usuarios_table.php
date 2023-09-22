@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('usuarios', function (Blueprint $table) {
             $table->integer('id_usuario', true);
             $table->string('nombre_usuario', 100);
-            $table->string('correo_usuario', 150);
+            $table->string('correo_usuario', 150)->unique();;
             $table->date('fecha_nacimiento_usuario');
-            $table->string('numero_documento_usuario', 10);
+            $table->string('numero_documento_usuario', 10)->unique();;
             $table->string('telefono_usuario', 10);
             $table->string('contraseña_usuario', 150);
             $table->integer('id_tipo_documento')->index('id_tipo_documento');

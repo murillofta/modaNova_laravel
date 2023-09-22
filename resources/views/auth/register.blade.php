@@ -14,8 +14,8 @@
 <div class="shadow p-2 mb-3 bg-body rounded">
 <nav class="nav nav-pills p-3 justify-content-center">
 
-  <a href="index.html" class="nav-link" aria-current="page"><img class="logo-modaNova" src="imagenes/logo-modaNova.png"></a>
-       <a href="index.html" class="nav-link p-3 text-black" aria-current="page" style="color: black;">Inicio</a>
+  <a href="{{ route('inicio') }}" class="nav-link" aria-current="page"><img class="logo-modaNova" src="{{ asset ('assets\imagenes\logo-ModaNova.png') }}"></a>
+       <a href="{{ route('inicio') }}" class="nav-link p-3 text-black" aria-current="page" style="color: black;">Inicio</a>
 
   <!-- Boton desplegable de productos para mujer -->
   <li class="nav-item dropdown">
@@ -72,28 +72,26 @@
     </form>
 
   <!-- Icono de Usuario para entrar a formulario de inicio de sesion-->
-    <a href="iniciosesion.html" class="nav-link" aria-current="page"><img style="width: 30px; height:30px;" src="imagenes\icono-user.png"></a>
+    <a href="{{ route('login') }}" class="nav-link" aria-current="page"><img style="width: 30px; height:30px;" src="{{('assets\imagenes\icono-user.png')}}"></a>
   <!-- Icono de carrito para entrar a formulario de compras -->
-    <a href="#" class="nav-link" aria-current="page"><img style="width: 30px; height:30px;" src="imagenes\icono-carrito.png"></a>
+    <a href="#" class="nav-link" aria-current="page"><img style="width: 30px; height:30px;" src="{{('assets\imagenes\icono-carrito.png')}}"></a>
 
   </nav>
 </div>
 <!-- Fin de barra de navegacion -->
 </header>
 
-
-<body class="body2">
-
 <center>
     <!-- Formulario de registro de usuario -->
-    <form method="post" action="guardardatos.php">
+    <form action="{{route('validar-registro')}}" method="POST">
+    @csrf
         <section class="form-register">
             <h2>Registrate en nuestra plataforma</h2>
 
         <input name="name" class="inputs" type="text" placeholder="Ingrese su nombre completo." pattern="[a-z-A-Z- ]{8,30}" title="Ingrese solo letras, minimo 8 y maximo 30 caracteres." required>
         <input name="email" class="inputs" type="email" placeholder="Ingrese su correo electronico." title="Ingrese un correo electronico valido" required>
 
-        <input name="fecha" class="inputs" type="date" placeholder="Ingrese su fecha de nacimiento (dia/mes/año)." pattern="[0-9/0-9/0-3000]{1,30}" title="Ingrese su fecha de nacimiento." required>
+        <input name="fecha_nac" class="inputs" type="date" placeholder="Ingrese su fecha de nacimiento (dia/mes/año)." title="Ingrese su fecha de nacimiento." required min="2008-01-01">
         
         <select name="tipo_doc" class="inputs" type="text" placeholder="Ingrese su tipo de documento" title="Ingrese un tipo de documento valido." required>
           <option value="0">Selecciona tu tipo de documento</option>
@@ -111,7 +109,7 @@
           Las contraseñas no coinciden, intentelo de nuevo.
         </div>
         <input id="submit" class="boton3" type="submit" value="Registrarse" name="register">
-        <span>¿Ya tienes una cuenta? Ingresa <a href="" class="boton2">aquí.</a></span>
+        <span>¿Ya tienes una cuenta? Ingresa <a href="{{ route('login') }}" class="boton2">aquí.</a></span>
         </div>
     </section>
 </form>

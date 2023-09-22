@@ -14,8 +14,8 @@
 <div class="shadow p-2 mb-3 bg-body rounded">
 <nav class="nav nav-pills p-3 justify-content-center">
 
-  <a href="index.html" class="nav-link" aria-current="page"><img class="logo-modaNova" src="imagenes/logo-modaNova.png"></a>
-       <a href="index.html" class="nav-link p-3 text-black" aria-current="page" style="color: black;">Inicio</a>
+  <a href="{{ route('inicio') }}" class="nav-link" aria-current="page"><img class="logo-modaNova" src="{{ asset ('assets\imagenes\logo-ModaNova.png') }}"></a>
+       <a href="{{ route('inicio') }}" class="nav-link p-3 text-black" aria-current="page" style="color: black;">Inicio</a>
 
   <!-- Boton desplegable de productos para mujer -->
   <li class="nav-item dropdown">
@@ -72,9 +72,9 @@
     </form>
 
   <!-- Icono de Usuario para entrar a formulario de inicio de sesion-->
-    <a href="iniciosesion.html" class="nav-link" aria-current="page"><img style="width: 30px; height:30px;" src="imagenes\icono-user.png"></a>
+    <a href="{{ route('login') }}" class="nav-link" aria-current="page"><img style="width: 30px; height:30px;" src="{{('assets\imagenes\icono-user.png')}}"></a>
   <!-- Icono de carrito para entrar a formulario de compras -->
-    <a href="#" class="nav-link" aria-current="page"><img style="width: 30px; height:30px;" src="imagenes\icono-carrito.png"></a>
+    <a href="#" class="nav-link" aria-current="page"><img style="width: 30px; height:30px;" src="{{('assets\imagenes\icono-carrito.png')}}"></a>
 
   </nav>
 </div>
@@ -85,7 +85,8 @@
 <center>
 
     <!-- Formulario de inicio de sesion de usuario-->
-        <form method="POST" action="validar.php">
+        <form method="POST" action="{{ route('validar-login') }}">
+          @csrf
             <section class="form-register">
                 <h2>Ingresa en la plataforma</h2>
     
@@ -94,7 +95,7 @@
             <input class="boton3" type="submit" value="Ingresar" name="iniciarsesion">
             <br>
             <br>
-            <span>¿Aun no tienes una cuenta? Registrate <a href="registro.html" class="boton2">aquí.</a></span>
+            <span>¿Aun no tienes una cuenta? Registrate <a href="{{ route('register') }}" class="boton2">aquí.</a></span>
             <br>
             <br>
             <span>Si olvidaste tu contraseña, recuperala <a href="recuperar-contraseña.html" class="boton2">aquí.</a></span>

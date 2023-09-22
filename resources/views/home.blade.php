@@ -16,9 +16,9 @@
     <div class="shadow p-2 mb-3 bg-body rounded">
     <nav class="nav nav-pills p-3 justify-content-center">
 
-      <a href="index.html" class="nav-link" aria-current="page"><img class="logo-modaNova" src="{{ asset ('assets\imagenes\logo-ModaNova.png') }}"></a>
+      <a href="{{ route('login') }}" class="nav-link" aria-current="page"><img class="logo-modaNova" src="{{ asset ('assets\imagenes\logo-ModaNova.png') }}"></a>
 
-           <a href="index.html" class="nav-link p-3 text-black active" aria-current="page" style="color: black;">Inicio</a>
+           <a href="{{ route('login') }}" class="nav-link p-3 text-black active" aria-current="page" style="color: black;">Inicio</a>
     
       <!-- Boton desplegable de productos para mujer -->
       <li class="nav-item dropdown">
@@ -79,6 +79,12 @@
       <!-- Icono de carrito para entrar a formulario de compras -->
         <a href="error-404.html" class="nav-link" aria-current="page"><img style="width: 30px; height:30px;" src="{{('assets\imagenes\icono-carrito.png')}}"></a>
     
+        @if(auth()->check())
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button cla type="submit" class="nav-link" aria-current="page">Cerrar sesión</button>
+    </form>
+@endif
       </nav>
     </div>
     <!-- Fin de barra de navegacion -->
